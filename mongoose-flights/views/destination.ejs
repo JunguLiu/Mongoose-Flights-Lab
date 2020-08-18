@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Destinations</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <body>
+      <h1>Add Destination</h1>
+      <form action="/flights/<%=id %>" method="POST">
+        <label
+          >Airpost:
+          <select name="airport">
+            <option>AUS</option>
+            <option>DFW</option>
+            <option>DEN</option>
+            <option>LAX</option>
+            <option>SAN</option>
+          </select>
+        </label>
+        <br />
+        <label
+          >Arrival:
+          <input type="datetime-local" name="arrival" />
+        </label>
+        <br />
+        <button type="submit">Submit</button>
+      </form>
+      <h1>Destination List</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Airport</th>
+            <th>Arrival</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% destinations.forEach( (d)=>{ %>
+          <tr>
+            <td><%= d.airport %></td>
+            <td><%= d.arrival.toISOString().slice(0, 16) %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </body>
+  </body>
+</html>

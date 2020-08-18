@@ -1,0 +1,29 @@
+<body>
+  <h1>Add New Ticket</h1>
+  <form action="/flights/ticket/<%=id %>" method="POST">
+    <label>Seat:</label>
+    <input name="seat" required pattern="[A-F][1-9]\d?" />
+    <br />
+    <label>Price:</label>
+    <input type="number" min="0" name="price" />
+    <br />
+    <button type="submit">Submit</button>
+  </form>
+  <h1>Tickets List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Seat</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tickets.forEach( (t)=>{ %>
+      <tr>
+        <td><%= t.seat %></td>
+        <td><%= t.price %></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>

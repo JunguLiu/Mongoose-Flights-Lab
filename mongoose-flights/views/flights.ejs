@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flights</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <body>
+      <h1>Flight List</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Airline</th>
+            <th>Airport</th>
+            <th>FlightNo</th>
+            <th>Departs</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% flights.forEach( (f)=>{ %>
+          <tr>
+            <td><%= f.airline %></td>
+            <td><%= f.airport %></td>
+            <td><%= f.flightNo %></td>
+            <td><%= f.departs.toISOString().slice(0, 16) %></td>
+            <td><a href="/flights/<%= f._id%>">detail</a></td>
+            <td><a href="/flights/ticket/<%= f._id%>">Tickets</a></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </body>
+  </body>
+</html>
